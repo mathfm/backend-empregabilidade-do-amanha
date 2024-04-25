@@ -42,7 +42,7 @@ class StudentService {
 
     async deleteStudent(id) {
         try {
-            const studentId = await StudentEntity.findByPk();
+            const studentId = await StudentEntity.findByPk(id);
             if(!studentId){
                 return `Estudante ${ERRORS.ALREADY_EXISTS}`
             }
