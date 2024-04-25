@@ -18,10 +18,10 @@ class StudentController {
         }
     }
 
-    async getAllStudents(req, res) {
+    getAllStudent(req, res) {
         try {
-            const students = await this.studentService.getAllStudent();
-            res.json({ students });
+            const students = this.studentService.getAllStudent();
+            res.json(students);
         } catch (error) {
             return error;
         }
