@@ -38,7 +38,7 @@ class ProjectEmployerController {
     async getAllProjectEmployer(req, res) {
         try {
             const { employer_id } = req.params;
-            const project = this.projectEmployerService.getAllProject(employer_id);
+            const project = this.projectEmployerService.getAllProjectEmployer(employer_id);
             return res.status(200).json(project);
         } catch (error) {
             return res.status(500).json({ message: error.message });
