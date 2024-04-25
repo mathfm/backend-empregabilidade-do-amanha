@@ -51,7 +51,7 @@ class StudentService {
                     id
                 }
             });
-            return `Estudante ${SUCESS.CREATED}`
+            return `Estudante ${SUCESS.DELETED}`
         } catch (error) {
             return error;
         }
