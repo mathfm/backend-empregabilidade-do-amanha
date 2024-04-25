@@ -1,4 +1,4 @@
-import { ProjectEmployerService } from "../services/PojectEmployerService";
+import { ProjectEmployerService } from "../services/PojectEmployerService.js";
 
 class ProjectEmployerController {
     constructor() {
