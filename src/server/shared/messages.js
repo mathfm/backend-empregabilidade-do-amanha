@@ -7,3 +7,5 @@ const SUCESS = {
     CREATED: "criado com sucesso!",
     DELETED: "deletado com sucesso!"
 }
+
+export { ERRORS, SUCESS }
