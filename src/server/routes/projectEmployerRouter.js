@@ -5,7 +5,7 @@ from "../controllers/ProjectEmployerController.js";
 
 const projectEmployerRouter = Router();
 
-projectEmployerRouter.post("/project/create", ProjectEmployerController.createProject);
+projectEmployerRouter.post("/project/create/:employer_id", ProjectEmployerController.createProject);
 projectEmployerRouter.get("/project/:id", ProjectEmployerController.getProject);
 projectEmployerRouter.get("/project", (req, res) => {
     return ProjectEmployerController.getAllProjectEmployer(req, res);

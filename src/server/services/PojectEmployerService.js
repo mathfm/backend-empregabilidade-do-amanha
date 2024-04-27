@@ -66,7 +66,7 @@ export class ProjectEmployerService {
                 link_project,
                 description,
                 languages_used
-            },{
+            }, {
                 where: {
                     id,
                     employer_id
