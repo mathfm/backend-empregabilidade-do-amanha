@@ -21,6 +21,6 @@ employerRouter.put("/employer/update/:id", (req, res) => {
     return EmployerController.updateEmployer(req, res);
 })
 
-employerRouter.delete("/employer/delte/:id", (req, res) => {
+employerRouter.delete("/employer/delete/:id", (req, res) => {
     return EmployerController.deleteEmployer(req, res);
 })
