@@ -8,7 +8,7 @@ export const ProjectEmployerEntity = database.define("tb_project_employer", {
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4,
   },
-  link_project: {
+  link_job: {
     type: DataTypes.STRING,
     allowNull: false,
   },

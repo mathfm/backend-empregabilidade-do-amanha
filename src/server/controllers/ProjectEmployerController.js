@@ -7,9 +7,9 @@ class ProjectEmployerController {
 
     async createProject(req, res) {
         try {
-            const { link_project, description, languages_used } = req.body;
+            const { link_job, description, languages_used } = req.body;
             const { employer_id } = req.params;
-            const newProject = this.projectEmployerService.createProject(link_project, description, languages_used, employer_id);
+            const newProject = this.projectEmployerService.createProject(link_job, description, languages_used, employer_id);
             return res.status(201).json(newProject);
         } catch (error) {
             return error;
@@ -58,8 +58,8 @@ class ProjectEmployerController {
     async updateProject(req, res) { 
         try {
             const { id, employer_id } = req.params;
-            const { link_project, description, languages_used } = req.body;
-            await this.projectEmployerService.updateProject(id, link_project, description, languages_used, employer_id);
+            const { link_job, description, languages_used } = req.body;
+            await this.projectEmployerService.updateProject(id, link_job, description, languages_used, employer_id);
             return res.status(204).json();
         } catch (error) {
             return res.status(500).json({ message: error.message });
