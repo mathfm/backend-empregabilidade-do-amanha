@@ -8,20 +8,53 @@ class StudentController {
 
     async createStudent(req, res) {
         try {
-            const { full_name, email, password, github_url, linkedin_url } = req.body;
-            const newStudent = await instanceStudentService.createStudent(full_name, email, password, github_url, linkedin_url);
-            res
-                .status(201)
-                .json({ newStudent })
+            const {
+                name,
+                email,
+                password,
+                github_url,
+                linkedin_url,
+                description,
+            } = req.body;
+            const newStudent = await this.studentService.createStudent(
+                name,
+                email,
+                password,
+                github_url,
+                linkedin_url,
+                description
+            );
+            res.status(201).json(newStudent)
         } catch (error) {
             return error;
         }
     }
 
-    getAllStudent(req, res) {
+    async getAllStudent(req, res) {
         try {
-            const students = this.studentService.getAllStudent();
+            const students = await this.studentService.getAllStudent();
             res.json(students);
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async getStudentById(req, res) {
+        try {
+            const { id } = req.params;
+            const student = await this.studentService.getStudentById(id);
+            res.json(student);
+        } catch (error) {
+            return error;
+        }
+    }
+
+    async loginStudent(req, res) {
+        try {
+            console.log("chegou aqui");
+            const { email, password } = req.body;
+            const token = await this.studentService.loginStudent(email, password);
+            res.json(token);
         } catch (error) {
             return error;
         }
@@ -31,8 +64,8 @@ class StudentController {
         try {
             const { id } = req.params;
             const { newEmail } = req.body;
-            const emailUpdate = await instanceStudentService.updateEmail(id, newEmail);
-            res.json({ emailUpdate });
+            const emailUpdate = await this.studentService.updateEmail(id, newEmail);
+            res.json(emailUpdate);
         } catch (error) {
             return error;
         }
@@ -41,7 +74,7 @@ class StudentController {
     async deleteStudent(req, res) {
         try {
             const { id } = req.params;
-            const delStudent = await instanceStudentService.deleteStudent(id);
+            const delStudent = await this.studentService.deleteStudent(id);
             res.json({ delStudent });
         } catch (error) {
             return error;

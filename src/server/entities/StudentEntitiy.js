@@ -7,7 +7,7 @@ export const StudentEntity = database.define("tb_student", {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
     },
-    full_name: {
+    name: {
         type: DataTypes.STRING,
         allowNull: false,
     },
@@ -27,5 +27,9 @@ export const StudentEntity = database.define("tb_student", {
     linkedin_url: {
         type: DataTypes.STRING,
         allowNull: true,
+    },
+    description: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
 });

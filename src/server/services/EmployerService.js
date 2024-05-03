@@ -1,9 +1,11 @@
 import { EmployerEntity } from "../entities/EmployerEntity.js";
 
+
+
 export class EmployerService {
-  async createUser(name, email, password) {
+    async createUser(name, email, password) {
     try {
-      await EmployerEntity.sync();
+        await EmployerEntity.sync();
       const newEmployer = await EmployerEntity.create({
         name,
         email,
