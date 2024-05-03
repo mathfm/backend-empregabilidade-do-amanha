@@ -44,7 +44,7 @@ export class EmployerService {
         }
     }
 
-    async updateEmployee(id, name, email, password) { 
+    async updateEmployer(id, name, email, password) { 
         try {
             const employee = await EmployerEntity.update({
                 email: email,

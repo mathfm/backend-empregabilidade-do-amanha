@@ -1,10 +1,10 @@
 import { ProjectEmployerEntity } from "../entities/ProjectEmployerEntity.js";
 
 export class ProjectEmployerService {
-    async createProject(link_project, description, languages_used, employer_id) {
+    async createProject(link_job, description, languages_used, employer_id) {
         try {
             const project = await ProjectEmployerEntity.create({
-                link_project,
+                link_job,
                 description,
                 languages_used,
                 employer_id,
@@ -60,13 +60,13 @@ export class ProjectEmployerService {
         }
     }
 
-    async updateProject(id, employer_id, link_project, description, languages_used) {
+    async updateProject(id, employer_id, link_job, description, languages_used) {
         try {
             const project = await ProjectEmployerEntity.update({
-                link_project,
+                link_job,
                 description,
                 languages_used
-            },{
+            }, {
                 where: {
                     id,
                     employer_id

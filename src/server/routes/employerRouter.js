@@ -14,13 +14,13 @@ employerRouter.get("/employer", (req, res) => {
 })
 
 employerRouter.get("/employer/:id", (req, res) => {
-    return EmployerController.getAllEmployer(req, res);
+    return EmployerController.getEmployer(req, res);
 })
 
 employerRouter.put("/employer/update/:id", (req, res) => {
     return EmployerController.updateEmployer(req, res);
 })
 
-employerRouter.delete("/employer/delte/:id", (req, res) => {
+employerRouter.delete("/employer/delete/:id", (req, res) => {
     return EmployerController.deleteEmployer(req, res);
 })
