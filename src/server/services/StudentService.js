@@ -65,18 +65,19 @@ class StudentService {
         }
     }
 
-    async updateEmail(id, newEmail){
+    async updateUser(id, name , email, password, github_url, linkedin_url, description){
         try {
+            const passwordHash = await bcrypt.hash(password, 10);
             const studentId = await StudentEntity.findByPk(id);
             if(!studentId){
                 return `Estudante ${ERRORS.ALREADY_EXISTS}`
             }
-            const emailUpdate = await StudentEntity.update({email: newEmail}, {
+            const userUpdate = await StudentEntity.update({name, email, password: passwordHash, github_url, linkedin_url, description }, {
                 where: {
                     id
                 }
             });
-            return emailUpdate;
+            return userUpdate;
         } catch (error) {
             return error;
         }
@@ -88,7 +89,7 @@ class StudentService {
             if(!studentId){
                 return `Estudante ${ERRORS.ALREADY_EXISTS}`
             }
-            const delUpdate = await StudentEntity.destroy({
+            await StudentEntity.destroy({
                 where: {
                     id
                 }

@@ -60,12 +60,12 @@ class StudentController {
         }
     }
 
-    async updateEmail(req, res) {
+    async updateUser(req, res) {
         try {
             const { id } = req.params;
-            const { newEmail } = req.body;
-            const emailUpdate = await this.studentService.updateEmail(id, newEmail);
-            res.json(emailUpdate);
+            const {name, email, password, github_url, linkedin_url, description } = req.body;
+            const userUpdate = await this.studentService.updateUser(id, name ,email, password, github_url, linkedin_url, description);
+            res.json(userUpdate);
         } catch (error) {
             return error;
         }

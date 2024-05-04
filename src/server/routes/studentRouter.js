@@ -16,7 +16,11 @@ studentRouter.get("/student", (req, res) => {
 studentRouter.get("/student/:id", checkToken, (req, res) => {
     return StudentController.getStudentById(req, res);
 });
-studentRouter.patch("student/update/:id", StudentController.updateEmail);
-studentRouter.delete("/student/delete/:id", StudentController.deleteStudent);
+studentRouter.put("/student/update/:id", (req, res) => {
+    return StudentController.updateUser(req, res);
+});
+studentRouter.delete("/student/delete/:id", (req, res) => {
+    return StudentController.deleteStudent(req, res);
+});
 
 export { studentRouter }
