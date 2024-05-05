@@ -32,7 +32,7 @@ class EmployerController {
             const { id } = req.params;
             const { name, email, password } = req.body;
             const updatedEmployer = await this.employerService.updateEmployer(id, name, email, password);
-            return res.status(200).json(updatedEmployer);
+            return res.status(201).json(updatedEmployer);
         } catch (error) {
             return res.status(500).json({ message: error.message });
         }
@@ -45,6 +45,16 @@ class EmployerController {
             return res.status(200).json(employer);
         } catch (error) {
             return res.status(500).json({ message: error.message });
+        }
+    }
+
+    async loginEmployer(req, res) {
+        try {
+            const { email, password } = req.body;
+            const token = await this.employerService.loginEmployer(email, password);
+            res.json(token);
+        } catch (error) {
+            return error;
         }
     }
 

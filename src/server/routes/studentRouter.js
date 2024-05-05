@@ -1,11 +1,12 @@
 import { Router } from "express";
 import StudentController from "../controllers/StudentController.js";
-import { checkToken } from "../middlewares/checkToken.js";
+import { checkToken } from "../shared/middlewares/checkToken.js";
+import { studentMiddleware } from "../shared/middlewares/studentMiddleware.js";
 
 const studentRouter = Router();
 
-studentRouter.post("/student/create", (req, res) => {
-    return StudentController.createStudent(req, res);
+studentRouter.post("/student/create", studentMiddleware, async (req, res) => {
+  return StudentController.createStudent(req, res);
 });
 studentRouter.post("/login/student", (req, res) => {
     return StudentController.loginStudent(req, res);})

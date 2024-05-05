@@ -33,7 +33,8 @@ class StudentService {
             const secret = process.env.SECRET;
             const token = jwt.sign({
                 id: student.id,
-                email: student.email
+                email: student.email,
+                type: "student"
             }, secret);
 
             return {msg: "authorization", token: token};

@@ -2,11 +2,15 @@ import { DataTypes, Sequelize } from "sequelize";
 import { database } from "../database/connection.js";
 import { EmployerEntity } from "./EmployerEntity.js";
 
-export const ProjectEmployerEntity = database.define("tb_project_employer", {
+export const JobEmployerEntity = database.define("tb_job_employer", {
   id: {
     type: DataTypes.UUID,
     primaryKey: true,
     defaultValue: Sequelize.UUIDV4,
+  },
+  title: {
+    type: DataTypes.STRING,
+    allowNull: false
   },
   link_job: {
     type: DataTypes.STRING,
@@ -16,14 +20,10 @@ export const ProjectEmployerEntity = database.define("tb_project_employer", {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true,
-  },
-  languages_used: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
+  }
 });
 
-ProjectEmployerEntity.belongsTo(EmployerEntity, {
+JobEmployerEntity.belongsTo(EmployerEntity, {
   foreignKey: "employer_id",
   onDelete: "CASCADE",
   constraints: true

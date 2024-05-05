@@ -51,7 +51,6 @@ class StudentController {
 
     async loginStudent(req, res) {
         try {
-            console.log("chegou aqui");
             const { email, password } = req.body;
             const token = await this.studentService.loginStudent(email, password);
             res.json(token);

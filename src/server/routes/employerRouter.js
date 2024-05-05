@@ -9,6 +9,10 @@ employerRouter.post("/employer/create", (req, res) => {
   return EmployerController.createUser(req, res);
 });
 
+employerRouter.post("/employer/login", (req, res) => {
+    return EmployerController.loginEmployer(req, res);
+})
+
 employerRouter.get("/employer", (req, res) => {
     return EmployerController.getAllEmployer(req, res);
 })
