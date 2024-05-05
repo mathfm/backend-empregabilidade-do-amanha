@@ -81,11 +81,12 @@ export class EmployerService {
 
     async updateEmployer(id, name, email, password) {
         try {
+            const passwordHash = await bcrypt.hash(password, 10);
             const employee = await EmployerEntity.update(
                 {
                     email: email,
                     name: name,
-                    password: password,
+                    password: passwordHash,
                 },
                 {
                     where: {

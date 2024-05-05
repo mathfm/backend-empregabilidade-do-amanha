@@ -9,7 +9,7 @@ class JobEmployerController {
         try {
             const { link_job, description, title } = req.body;
             const { employer_id } = req.params;
-            const newJobLink = await this.JobEmployerService.createJobLink(link_job, title, description, employer_id);
+            const newJobLink = await this.JobEmployerService.createJobLink(title, link_job, description, employer_id);
             return res.status(201).json(newJobLink);
         } catch (error) {
             return error;
