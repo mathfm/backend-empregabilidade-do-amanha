@@ -1,9 +1,10 @@
 import { Router } from "express";
 import JobEmployerController from "../controllers/JobEmployerController.js";
+import { jobEmployerMiddleware } from "../shared/middlewares/jobEmployerMiddleware.js";
 
 const jobEmployerRouter = Router();
 
-jobEmployerRouter.post("/job/create/:employer_id", (req, res) => {
+jobEmployerRouter.post("/job/create/:employer_id", jobEmployerMiddleware, (req, res) => {
     return JobEmployerController.createJobLink(req, res);
 });
 jobEmployerRouter.get("/job/:id", (req, res) => {

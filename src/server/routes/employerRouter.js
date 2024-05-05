@@ -1,11 +1,12 @@
 import { Router } from "express";
 import EmployerController from "../controllers/EmployerController.js";
+import { employerMiddleware } from "../shared/middlewares/employerMiddleware.js";
 
 
 export const employerRouter = Router();
 
 
-employerRouter.post("/employer/create", (req, res) => {
+employerRouter.post("/employer/create", employerMiddleware, (req, res) => {
   return EmployerController.createUser(req, res);
 });
 

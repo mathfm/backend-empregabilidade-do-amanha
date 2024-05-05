@@ -1,20 +1,19 @@
-import { StudentEntity } from "../../entities/StudentEntitiy.js";
+import { EmployerEntity } from "../../entities/EmployerEntity.js";
 import { fieldExistValidation } from "../validation/fieldsExist.js";
 import { schemaValidation } from "../validation/schemaValidation.js";
-import { studentSchema } from "../validation/schemas.js";
+import { employerSchema } from "../validation/schemas.js";
 
-export const studentMiddleware = async (req, res, next) => {
+export const employerMiddleware = async (req, res, next) => {
   try {
     const emailExist = await fieldExistValidation(
-      StudentEntity,
+      EmployerEntity,
       "email",
       req.body.email
     );
     if (emailExist) {
       return res.status(400).json({ error: "Email ja registrado" });
     }
-    const errorsFields = await schemaValidation(studentSchema, req.body);
-
+    const errorsFields = await schemaValidation(employerSchema, req.body);
 
     if (errorsFields) {
       return res.status(400).json({ errors: errorsFields });
