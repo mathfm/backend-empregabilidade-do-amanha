@@ -7,16 +7,16 @@
 <h3 align="center">Repositório Backend referente ao projeto final do curso Programadores do Amanhã feito para empregabilidade dos alunos após o curso.</h3>
 
 <div align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/mathfm/frontend-serviceMate?color=34032B">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/mathfm/backend-m6?color=34032B">
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/mathfm/frontend-serviceMate?color=34032B">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/mathfm/backend-m6?color=34032B">
   
   <a href="https://github.com/mathfm/frontend-serviceMate/commits/main">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mathfm/frontend-serviceMate?color=34032B">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/mathfm/backend-m6?color=34032B">
   </a>
   
-   <a href="https://github.com/mathfm/frontend-serviceMate/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/mathfm/frontend-serviceMate?style=social">
+   <a href="https://github.com/mathfm/backend-m6/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/mathfm/backend-m6?style=social">
   </a>
 </div>
 
