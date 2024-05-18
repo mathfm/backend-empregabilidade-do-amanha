@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.indexRouter = void 0;
+const express_1 = require("express");
+const employerRouter_1 = require("./employerRouter");
+const studentRouter_1 = require("./studentRouter");
+const jobtEmployerRouter_1 = require("./jobtEmployerRouter");
+exports.indexRouter = (0, express_1.Router)();
+exports.indexRouter.use("/api", employerRouter_1.employerRouter);
+exports.indexRouter.use("/api", jobtEmployerRouter_1.jobEmployerRouter);
+exports.indexRouter.use("/api", studentRouter_1.studentRouter);
