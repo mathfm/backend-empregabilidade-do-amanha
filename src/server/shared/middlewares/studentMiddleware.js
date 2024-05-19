@@ -17,7 +17,7 @@ export const studentMiddleware = async (req, res, next) => {
 
 
     if (errorsFields) {
-      return res.status(400).json({ errors: errorsFields });
+      return res.status(400).json(errorsFields);
     }
 
     next();

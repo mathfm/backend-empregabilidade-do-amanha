@@ -8,7 +8,7 @@ const studentRouter = Router();
 studentRouter.post("/student/create", studentMiddleware, async (req, res) => {
   return StudentController.createStudent(req, res);
 });
-studentRouter.post("/login/student", (req, res) => {
+studentRouter.post("/student/login", (req, res) => {
     return StudentController.loginStudent(req, res);})
 studentRouter.get("/student", (req, res) => {
     return StudentController.getAllStudent(req, res);
