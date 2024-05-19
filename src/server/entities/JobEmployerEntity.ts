@@ -1,7 +1,7 @@
 import { DataTypes, Sequelize, Model, Optional } from "sequelize";
 import { database } from "../database/connection";
 import { EmployerEntity } from "./EmployerEntity";
-
+import { randomUUID }  from 'node:crypto';
 interface JobEmployerAttributes {
   id: string;
   title: string;
@@ -25,7 +25,7 @@ JobEmployer.init(
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
+      defaultValue: randomUUID(),
     },
     title: {
       type: DataTypes.STRING,
@@ -38,7 +38,6 @@ JobEmployer.init(
     description: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
   },
   {

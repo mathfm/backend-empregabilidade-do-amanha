@@ -9,7 +9,7 @@ studentRouter.post("/student/create", studentMiddleware, async (req: Request, re
   return StudentController.createStudent(req, res);
 });
 
-studentRouter.post("/login/student", (req: Request, res: Response) => {
+studentRouter.post("/student/login", (req: Request, res: Response) => {
     return StudentController.loginStudent(req, res);
 });
 

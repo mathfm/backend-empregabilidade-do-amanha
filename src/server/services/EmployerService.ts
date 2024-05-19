@@ -14,7 +14,7 @@ export class EmployerService {
             });
             return newEmployer;
         } catch (error) {
-            throw new Error(error);
+            throw new Error("Ocorreu um erro");
         }
     }
 
@@ -25,7 +25,7 @@ export class EmployerService {
             });
             return employer;
         } catch (error) {
-            throw new Error(error);
+            throw new Error("Ocorreu um erro");
         }
     }
 
@@ -36,7 +36,7 @@ export class EmployerService {
             });
             return employers;
         } catch (error) {
-            throw new Error(error);
+            throw new Error("Ocorreu um erro");
         }
     }
 
@@ -49,7 +49,7 @@ export class EmployerService {
                     }
                 }
             );
-            const passwordIsValid = await bcrypt.compare(password, employer.password);
+            const passwordIsValid = await bcrypt.compare(password, employer!.password);
             if (!passwordIsValid) {
                 return "Invalid password";
             }
@@ -57,8 +57,8 @@ export class EmployerService {
             const secret = process.env.SECRET as string;
             const token = jwt.sign(
               {
-                id: employer.id,
-                email: employer.email,
+                id: employer!.id,
+                email: employer!.email,
                 type: "collaborator"
               },
               secret
@@ -74,9 +74,9 @@ export class EmployerService {
     async deleteEmployer(id: string) {
         try {
             const employer = await EmployerEntity.findByPk(id);
-            await employer.destroy();
+            await employer!.destroy();
         } catch (error) {
-            throw new Error(error);
+            throw new Error("Ocorreu um erro");
         }
     }
 
@@ -97,7 +97,7 @@ export class EmployerService {
             );
             return employee;
         } catch (error) {
-            throw new Error(error);
+            throw new Error("Ocorreu um erro");
         }
     }
 }

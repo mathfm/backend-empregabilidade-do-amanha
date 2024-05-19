@@ -72,7 +72,6 @@ export class JobEmployerService {
             });
             return jobLink;
         } catch (error) {
-            console.error("Error updating job link:", error);
             throw new Error("Failed to update job link");
         }
     }
