@@ -6,6 +6,6 @@ const port = process.env.PORT || 3306;
 
 server.listen(port, () => {
     testConnection();
-    console.log(`Server started port ${port}`)
+    console.log(`Server started port  ${port}`)
 });
 
