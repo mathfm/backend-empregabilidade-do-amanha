@@ -63,11 +63,13 @@ export class JobEmployerService {
 
     async updateJobLink(id: string, title: string, employer_id: string, link_job: string, description: string): Promise<any> {
         try {
-            const jobLink = await JobEmployerEntity.update({
-                title,
-                link_job,
-                description,
-            }, {
+            const job = await JobEmployerEntity.findByPk(id);
+            const dateJob = {
+                title: (title === "" || title === null) ? job?.title : title,
+                link_job: (link_job === "" || link_job === null) ? job?.link_job : link_job,
+                description: (description === "" || description === null) ? job?.description : description
+            };
+            const jobLink = await JobEmployerEntity.update(dateJob, {
                 where: { id, employer_id }
             });
             return jobLink;

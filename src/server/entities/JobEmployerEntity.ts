@@ -25,7 +25,7 @@ JobEmployer.init(
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: randomUUID(),
+      defaultValue: randomUUID,
     },
     title: {
       type: DataTypes.STRING,

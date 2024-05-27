@@ -71,10 +71,18 @@ class StudentService {
         try {
             const passwordHash = await bcrypt.hash(password, 10);
             const student = await StudentEntity.findByPk(id);
+            const dataStudent = {
+            name: (name === "" || name === null) ? student?.name : name,
+            email: (email === "" || email === null) ? student?.email : email,
+            password: passwordHash,
+            github_url: (github_url === "" || github_url === null) ? student?.github_url : github_url,
+            linkedin_url: (linkedin_url === "" || linkedin_url === null) ? student?.linkedin_url : linkedin_url,
+            description: (description === "" || description === null) ? student?.description : description
+        };
             if (!student) {
                 return `Student ${ERRORS.ALREADY_EXISTS}`;
             }
-            const userUpdate = await StudentEntity.update({ name, email, password: passwordHash, github_url, linkedin_url, description }, { where: { id } });
+            const userUpdate = await StudentEntity.update(dataStudent, { where: { id } });
             return userUpdate;
         } catch (error) {
             console.error("Error updating student:", error);

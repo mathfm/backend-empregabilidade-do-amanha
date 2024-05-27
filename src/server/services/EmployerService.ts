@@ -83,19 +83,22 @@ export class EmployerService {
     async updateEmployer(id: string, name: string, email: string, password: string) {
         try {
             const passwordHash = await bcrypt.hash(password, 10);
-            const employee = await EmployerEntity.update(
-                {
-                    email: email,
-                    name: name,
-                    password: passwordHash,
-                },
+            const employer = await EmployerEntity.findOne({where: {id}});
+            const dateEmployer = {
+                email: (email === "" || email === null) ? employer?.email : email,
+                name: (name === "" || name === null) ? employer?.name : name,
+                password: passwordHash
+            }
+            
+            const newEmployee = await EmployerEntity.update(
+                dateEmployer,
                 {
                     where: {
                         id: id,
                     },
                 }
             );
-            return employee;
+            return newEmployee;
         } catch (error) {
             throw new Error("Ocorreu um erro");
         }

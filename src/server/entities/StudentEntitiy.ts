@@ -31,7 +31,7 @@ StudentEntity.init(
         id: {
             type: DataTypes.UUID,
             primaryKey: true,
-            defaultValue: randomUUID(),
+            defaultValue: randomUUID,
         },
         name: {
             type: DataTypes.STRING,
